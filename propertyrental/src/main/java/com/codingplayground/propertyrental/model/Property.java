@@ -23,7 +23,7 @@ public class Property {
     @ManyToOne
     private AppUser owner;
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL)
     private List<Amenity> amenities;
 
     @OneToMany(mappedBy = "property", cascade = CascadeType.ALL, orphanRemoval = true)

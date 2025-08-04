@@ -1,11 +1,12 @@
 spring:
   application:
-  name: propertyrental
+    name: propertyrental
 
   datasource:
-    url: jdbc:postgresql://localhost:5432/property_db
-    username: postgres
-    password: abundance
+    url: ${SPRING_DATASOURCE_URL}
+    username: ${SPRING_DATASOURCE_USERNAME}
+    password: ${SPRING_DATASOURCE_PASSWORD}
+
   jpa:
     hibernate:
       ddl-auto: update
@@ -20,11 +21,11 @@ server:
 
 app:
   environment:
-    isProd: false
+    isProd: ${APP_ENV_IS_PROD:false}
   security:
     rsaKeys:
-      publicKey: "classpath:certs/publicKey.pem"
-      privateKey: "classpath:certs/privateKey.pem"
+      publicKey: ${APP_SECURITY_PUBLIC_KEY:classpath:certs/publicKey.pem}
+      privateKey: ${APP_SECURITY_PRIVATE_KEY:classpath:certs/privateKey.pem}
 
 springdoc:
   swagger-ui:

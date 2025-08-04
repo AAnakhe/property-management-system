@@ -9,6 +9,7 @@ import com.codingplayground.propertyrental.model.mapper.AppUserMapper;
 import com.codingplayground.propertyrental.repository.AppUserRepository;
 import com.codingplayground.propertyrental.service.AppUserService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -20,6 +21,7 @@ public class AppUserServiceImpl implements AppUserService {
 
     private final AppUserRepository appUserRepository;
     private final AppUserMapper appUserMapper;
+    private final PasswordEncoder passwordEncoder;
 
     @Override
     public AppUserResponseDTO registerUser(AppUserRequestDTO dto) {
@@ -27,7 +29,7 @@ public class AppUserServiceImpl implements AppUserService {
         entity.setFirstName(dto.firstName());
         entity.setLastName(dto.lastName());
         entity.setEmail(dto.email());
-        entity.setPassword(dto.password());
+        entity.setPassword(passwordEncoder.encode(dto.password()));
         entity.setPhone(dto.phone());
         entity.setRole(Role.LANDLORD);
         AppUser saved = appUserRepository.save(entity);

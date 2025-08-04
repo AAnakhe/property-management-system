@@ -1,7 +1,7 @@
 package com.codingplayground.propertyrental.service.impl;
 
 import com.codingplayground.propertyrental.model.Property;
-import com.codingplayground.propertyrental.model.dto.PropertyDTO;
+import com.codingplayground.propertyrental.model.dto.PropertyResponseDTO;
 import com.codingplayground.propertyrental.repository.AmenityRepository;
 import com.codingplayground.propertyrental.repository.AppUserRepository;
 import com.codingplayground.propertyrental.repository.PropertyRepository;
@@ -40,7 +40,7 @@ class PropertyServiceImplTest {
 
         when(propertyRepository.findAll()).thenReturn(List.of(property));
 
-        List<PropertyDTO> results = propertyService.getAllProperties();
+        List<PropertyResponseDTO> results = propertyService.getAllProperties();
 
         assertEquals(1, results.size());
         assertEquals("Test Home", results.get(0).title());

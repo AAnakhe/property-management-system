@@ -1,6 +1,7 @@
 package com.codingplayground.propertyrental.controller;
 
-import com.codingplayground.propertyrental.model.dto.PropertyDTO;
+import com.codingplayground.propertyrental.model.dto.PropertyRequestDTO;
+import com.codingplayground.propertyrental.model.dto.PropertyResponseDTO;
 import com.codingplayground.propertyrental.service.PropertyService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -22,19 +23,19 @@ public class PropertyController {
 
     @Operation(summary = "Get all properties")
     @GetMapping
-    public List<PropertyDTO> getAll() {
+    public List<PropertyResponseDTO> getAll() {
         return propertyService.getAllProperties();
     }
 
     @Operation(summary = "Get property by ID")
     @GetMapping("/{id}")
-    public PropertyDTO getById(@PathVariable Long id) {
+    public PropertyResponseDTO getById(@PathVariable Long id) {
         return propertyService.getPropertyById(id);
     }
 
     @Operation(summary = "Create a new property")
     @PostMapping
-    public PropertyDTO create(@RequestBody @Valid PropertyDTO dto) {
+    public PropertyResponseDTO create(@RequestBody @Valid PropertyRequestDTO dto) {
         return propertyService.createProperty(dto);
     }
 

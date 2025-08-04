@@ -1,12 +1,13 @@
 package com.codingplayground.propertyrental.service;
 
-import com.codingplayground.propertyrental.model.dto.PropertyDTO;
+import com.codingplayground.propertyrental.model.dto.PropertyRequestDTO;
+import com.codingplayground.propertyrental.model.dto.PropertyResponseDTO;
 
 import java.util.List;
 
 public interface PropertyService {
-    List<PropertyDTO> getAllProperties();
-    PropertyDTO createProperty(PropertyDTO dto);
-    PropertyDTO getPropertyById(Long id);
+    List<PropertyResponseDTO> getAllProperties();
+    PropertyResponseDTO createProperty(PropertyRequestDTO dto);
+    PropertyResponseDTO getPropertyById(Long id);
     void deleteProperty(Long id);
 }

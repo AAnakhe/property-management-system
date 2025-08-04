@@ -8,10 +8,7 @@ import jakarta.validation.constraints.Positive;
 import java.util.List;
 import java.util.UUID;
 
-public record PropertyDTO(
-
-        @Schema(description = "Property ID", example = "10")
-        Long id,
+public record PropertyRequestDTO(
 
         @Schema(description = "Title of the property", example = "Spacious 2-bedroom apartment")
         @NotBlank(message = "Title is required")

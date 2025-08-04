@@ -34,11 +34,11 @@ public class AmenityController {
         return ResponseEntity.ok(amenityService.getAmenityById(id));
     }
 
-    @Operation(summary = "Create a new amenity")
+   /* @Operation(summary = "Create a new amenity")
     @PostMapping
     public ResponseEntity<AmenityDTO> create(@RequestBody @Valid AmenityDTO dto) {
         return ResponseEntity.status(HttpStatus.CREATED).body(amenityService.createAmenity(dto));
-    }
+    }*/
 
     @Operation(summary = "Delete an amenity by ID")
     @DeleteMapping("/{id}")
